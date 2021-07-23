@@ -9,7 +9,7 @@ export interface TokenProps {
 
 export interface UserProps {
     id: number;
-    email: string;
+    email?: string;
     name?: string;
     city?: string;
 }
