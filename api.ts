@@ -10,6 +10,8 @@ interface TokenProps {
 interface UserProps {
     id: number;
     email: string;
+    name?: string;
+    city?: string;
 }
 
 const initialTokenState = {
@@ -151,12 +153,12 @@ export default class Api {
         }
     };
       
-    getData = async (id: number) => {
+    getUser = async (id: number) => {
         const endPoint = `/api/user/${id}`;
         return await this._requestWrapper(endPoint, REQUEST_METHOD.GET);
     };
       
-    postData = async (email: string, password: string) => {
+    createUser = async (email: string, password: string) => {
         const endPoint = `/api/create/user`;
         const payload: {
             email: string;
@@ -168,7 +170,7 @@ export default class Api {
         return await this._requestWrapper(endPoint, REQUEST_METHOD.POST, payload);
     };
 
-    pathData = async (user: UserProps) => {
+    updateUser = async (user: UserProps) => {
         const endPoint = `/api/update/user/${user.id}`;
         return await this._requestWrapper(endPoint, REQUEST_METHOD.PATCH, user);
     };
