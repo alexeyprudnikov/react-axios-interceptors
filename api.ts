@@ -1,20 +1,20 @@
 import axios, { AxiosInstance, AxiosRequestConfig, Method } from 'axios';
 
-interface TokenProps {
+export interface TokenProps {
     access_token: string;
     token_type: string;
     expires_in: number;
     refresh_token: string;
 }
 
-interface UserProps {
+export interface UserProps {
     id: number;
     email: string;
     name?: string;
     city?: string;
 }
 
-const initialTokenState = {
+export const initialTokenState = {
     access_token: '',
     token_type: 'BEARER',
     expires_in: 0,
